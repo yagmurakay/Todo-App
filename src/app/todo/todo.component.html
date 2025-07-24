@@ -1,0 +1,20 @@
+<div class="todo-container">
+  <h2>Görev Listesi</h2>
+
+  <input [(ngModel)]="newTodo" placeholder="Yeni görev girin" />
+  <button (click)="addTodo()">Ekle</button>
+
+  <ul>
+    <li *ngFor="let todo of todos">
+      <input
+        type="checkbox"
+        [checked]="todo.completed"
+        (change)="toggleComplete(todo)"
+      />
+      <span [style.textDecoration]="todo.completed ? 'line-through' : 'none'">{{
+        todo.title
+      }}</span>
+      <button (click)="deleteTodo(todo)">Sil</button>
+    </li>
+  </ul>
+</div>
